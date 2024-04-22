@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Recipe Collection</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    nav {
+      background-color: #444;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 10px;
+    }
+    
+    section {
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+    
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Recipe Collection</h1>
+  </header>
+  
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#recipes">Recipes</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  
+  <section id="home">
+    <h2>Welcome to the Recipe Collection</h2>
+    <p>This is a collection of delicious recipes. Explore the recipes section to find your favorite dishes.</p>
+  </section>
+  
+  <section id="recipes">
+    <h2>Recipes</h2>
+    <ul id="recipe-list">
+      <li>
+        <h3>Pasta with Tomato Sauce</h3>
+        <p>A classic Italian dish made with fresh tomatoes, basil, and pasta.</p>
+      </li>
+      <li>
+        <h3>Grilled Chicken Salad</h3>
+        <p>A refreshing salad with grilled chicken, lettuce, and tomatoes.</p>
+      </li>
+      <li>
+        <h3>Homemade Pizza</h3>
+        <p>A classic pizza recipe made with homemade dough, tomatoes, and mozzarella.</p>
+      </li>
+    </ul>
+    
+    <select id="category-filter">
+      <option value="">All Categories</option>
+      <option value="Italian">Italian</option>
+      <option value="Salad">Salad</option>
+      <option value="Pizza">Pizza</option>
+    </select>
+  </section>
+  
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Have a question or want to contribute? Feel free to contact us.</p>
+  </section>
+  
+  <footer>
+    <p>&copy; 2021 Recipe Collection. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    const recipeList = document.getElementById('recipe-list');
+    const categoryFilter = document.getElementById('category-filter');
+    
+    categoryFilter.addEventListener('change', function() {
+      const selectedCategory = categoryFilter.value;
+      const recipes = recipeList.querySelectorAll('li');
+      
+      recipes.forEach(function(recipe) {
+        const category = recipe.getAttribute('data-category');
+        
+        if (selectedCategory === '' || category === selectedCategory) {
+          recipe.style.display = 'list-item';
+        } else {
+          recipe.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
